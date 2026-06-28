@@ -1,0 +1,37 @@
+import { headers } from "next/headers"
+import { comments } from "./data"
+import { NextRequest } from "next/server"
+
+// handle query parameters in the url
+export async function GET(request: NextRequest) {
+    // handling headers in the request
+    const headersList = await headers()
+    const referer = headersList.get('Content-Type')
+    console.log(referer);
+
+    // handling query parameters in the url
+    const searchParams = request.nextUrl.searchParams;
+    const query = searchParams.get("query")
+    const filteredComments = query ? comments.filter((comment)=> comment.text.includes(query)) : comments;
+    return new Response(JSON.stringify(filteredComments))
+}
+
+export async function POST(request: Request) {
+    const comment = await request.json()
+    const newComment = {
+        id: comments.length + 1,
+        text: comment.text
+    }
+    comments.push(newComment)
+
+    return new Response(JSON.stringify(newComment),
+        {
+            headers: { "Content-Type": "application/json" },
+            status: 201,
+        });
+}
+
+
+
+// dynamic route handler
+
