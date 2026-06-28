@@ -7,7 +7,7 @@ export const metadata = {
 // we cannot use metedata in client component
 
 function CounterPage() {
-   
+   console.log('CounterPage rendered')
   return (
     <div>
       <Counter/>
