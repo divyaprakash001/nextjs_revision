@@ -1,0 +1,9 @@
+
+export const Reviews = async()=>{
+  await new Promise((resolve)=> setTimeout(resolve,4000));
+  return(
+    <>
+    <div className="ctext-lg font-bold">Reviews</div>
+    </>
+  )
+}
