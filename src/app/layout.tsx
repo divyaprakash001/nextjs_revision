@@ -1,7 +1,8 @@
 // app/layout.ts
 import { Metadata } from "next";
-import Link from "next/link";
+// import {createContext, useState} from "react";
 import { ErrorWrapper } from "./error-wrapper";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <ThemeProvider>
       <body>
         <main>
           <ErrorWrapper>
@@ -24,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer>footer</footer>
       </body>
+      </ThemeProvider>
     </html>
   );
 }
