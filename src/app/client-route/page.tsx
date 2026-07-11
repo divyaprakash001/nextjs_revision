@@ -21,17 +21,19 @@ import { useTheme } from '@/components/theme-provider';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import {clientSideFunction} from "@/utils/client-utils";
 // import './ImageSlider.css';
 
 export default function page() {
   const theme = useTheme();
+  const resultInClient = clientSideFunction();
 
   const settings = {
     dots: true,
   };
   return (
     <>
-
+  <p>Result from client side function: {resultInClient}</p>
   <h1 style={{color:theme.colors.primary}}>Client router page</h1>
 
     <div className="image-slider-container">
