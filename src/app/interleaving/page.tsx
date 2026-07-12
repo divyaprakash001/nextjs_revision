@@ -6,7 +6,7 @@ export default function InterleavingPage(){
         <>
         <h1>Interleaving Page</h1>
         <ServerComponentOne />
-        <ClientComponentOne/>
+        <ClientComponentOne/> 
         </>
     )
 }
